@@ -21,6 +21,7 @@
             body: '',
             footer: '',
             classes: [],
+            extra_info: false, // require font-awesome
             limit: 5
         }
 
@@ -82,6 +83,24 @@
                     '</a> <span class="text-muted">@ GitHub</span>';
         };
 
+        var repoInfo = function(repo) {
+            if (!plugin.settings.extra_info) { return ''; }
+            return '<span class="pull-right">\
+                        <i class="fa fa-eye"></i> ' + repo.watchers_count + '&nbsp;&nbsp;\
+                        <i class="fa fa-star"></i> ' + repo.stargazers_count + '&nbsp;&nbsp;\
+                        <i class="fa fa-code-fork"></i> ' + repo.forks + '\
+                   </span>';
+        };
+
+        var gistInfo = function(gist) {
+            if (!plugin.settings.extra_info) { return ''; }
+            return '<span class="pull-right">\
+                        <i class="fa fa-eye"></i> ' + repo.watchers_count + '&nbsp;&nbsp;\
+                        <i class="fa fa-star"></i> ' + repo.stargazers_count + '&nbsp;&nbsp;\
+                        <i class="fa fa-code-fork"></i> ' + repo.forks + '\
+                   </span>';
+        };
+
         var fetchFromGithub = function() {
             var user = plugin.settings.user;
             var action = plugin.settings.widget;
@@ -109,11 +128,13 @@
                         switch (action) {
                         case 'repos':
                             content += '<a href="' + v.html_url + '">' + v.full_name + '</a> \
+                                      ' + repoInfo(v)  + '\
                                       <br/>' + v.description;
                             break;
                         case 'gists':
                             var gistName = v.owner.login + "/" + Object.keys(v.files)[0];
                             content += '<a href="' + v.html_url + '">' + gistName + '</a> \
+                                      ' + gistInfo(v) + '\
                                       <br/>' + v.description;
                             break;
                         }
@@ -155,6 +176,7 @@
             var inputBody = $(this).data('body');
             var inputFooter = $(this).data('footer');
             var inputClasses = $(this).data('classes');
+            var inputExtraInfo = $(this).data('extrainfo');
             var inputLimit = $(this).data('limit');
 
             if (inputWidget !== undefined) {
@@ -167,6 +189,7 @@
                 options.body = (inputBody !== undefined) ? inputBody : '';
                 options.footer = (inputFooter !== undefined) ? inputFooter : '';
                 options.classes = (inputClasses !== undefined) ? inputClasses.split(' ') : [];
+                options.extra_info = (inputExtraInfo !== undefined) ? Boolean(inputExtraInfo) : false;
                 options.limit = (inputLimit !== undefined) ? parseInt(inputLimit) : 5;
 
                 var plugin = new $.githubWidget(this, options);
