@@ -10,15 +10,31 @@
 		<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 		<script src="../bootstrap-github-widget.js"></script>
+
+		<style type="text/css">
+			.github-widget {
+				width: 350px;
+			}
+		</style>
+
 		<script type="text/javascript">
-			$('#example1').githubWidget({
-				user: 'gilliek'
+			$(function() {
+				$('#example1').githubWidget({
+					user: 'gilliek',
+					limit: 3
+				});
 			});
 		</script>
     </head>
     <body>
-        <h1>Bootstrap Github Widget <small>Examples</small></h1>
+    	<div class="container">
+        	<h1>Bootstrap Github Widget <small>Examples</small></h1>
 
-        <div id="example1"></div>
+	        <h2>Via data attributes</h2>
+        	<div class="github-widget" data-ghwidget="gilliek/repos" data-limit="3"></div>
+
+			<h2>Via JavaScript</h2>
+        	<div id="example1" class="github-widget"></div>
+        </div>
 	</body>
 </html>
