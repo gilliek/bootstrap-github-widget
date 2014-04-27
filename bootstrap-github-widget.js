@@ -9,11 +9,17 @@
 (function ($) {
     'use strict';
 
+    // GITHUB WIDGET CLASS DEFINITION
+    // ==============================
+
     $.githubWidget = function(element, options) {
         // defaults options
         var defaults = {
             user: '',
             widget: 'repos',
+            title: 'auto',
+            body: '',
+            footer: '',
             classes: [],
             limit: 5
         }
@@ -35,6 +41,47 @@
             $element.html(panel);
         };
 
+        var githubURL = function() {
+            switch (plugin.settings.widget) {
+            case 'repos':
+                return 'https://github.com/' + plugin.settings.user + '?tab=repositories';
+            case 'gists':
+                // TODO
+            default:
+                return '#';
+            }
+        };
+
+        var autoTitle = function() {
+            if (plugin.settings.title !== 'auto') { return plugin.settings.title; }
+            return 'GitHub ' + plugin.settings.widget;
+        }
+
+        var autoBody = function(owner, numberOf) {
+            if (plugin.settings.body !== 'auto') { return plugin.settings.body; }
+            return '<div class="media">\
+                        <a class="pull-left" href="https://github.com/' + plugin.settings.user + '">\
+                            <img class="media-object"\
+                                 src="' + owner.avatar_url + '"\
+                                 width="64"\
+                                 height="64"\
+                                 alt="' + plugin.settings.user + '" />\
+                        </a>\
+                        <div class="media-body">\
+                            <h4 class="media-heading">' + plugin.settings.user + '</h4>\
+                            ' + numberOf + ' ' + plugin.settings.widget + ' \
+                            (<a href="' + githubURL() + '">see all</a>)\
+                        </div>\
+                    </div>';
+        };
+
+        var autoFooter = function(footer) {
+            if (plugin.settings.footer !== 'auto') { return plugin.settings.footer; }
+            return '<a href="https://github.com/' + plugin.settings.user + '">'
+                        + plugin.settings.user +
+                    '</a> <span class="text-muted">@ GitHub</span>';
+        };
+
         var fetchFromGithub = function() {
             var user = plugin.settings.user;
             var action = plugin.settings.widget;
@@ -44,6 +91,9 @@
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
+                    var title = autoTitle();
+                    var body = autoBody(data[0]['owner'], data.length);
+                    var footer = autoFooter();
                     var limit = plugin.settings.limit;
 
                     var content = '<ul class="list-group">';
@@ -71,7 +121,7 @@
 
                     content += '</ul>';
 
-                    fillElement('GitHub ' + action, '', content, '');
+                    fillElement(title, body, content, footer);
                 }
             });
         }
@@ -99,6 +149,9 @@
     $(function() {
         $.each($('div.github-widget'), function() {
             var inputWidget = $(this).data('ghwidget');
+            var inputTitle = $(this).data('title');
+            var inputBody = $(this).data('body');
+            var inputFooter = $(this).data('footer');
             var inputClasses = $(this).data('classes');
             var inputLimit = $(this).data('limit');
 
@@ -108,6 +161,9 @@
                 var options = {};
                 options.user = tmp[0];
                 options.widget = tmp[1];
+                options.title = (inputTitle !== undefined) ? inputTitle: 'auto';
+                options.body = (inputBody !== undefined) ? inputBody : '';
+                options.footer = (inputFooter !== undefined) ? inputFooter : '';
                 options.classes = (inputClasses !== undefined) ? inputClasses.split(' ') : [];
                 options.limit = (inputLimit !== undefined) ? parseInt(inputLimit) : 5;
 

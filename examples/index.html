@@ -21,6 +21,9 @@
 			$(function() {
 				$('#example1').githubWidget({
 					user: 'gilliek',
+					title: 'My GitHub repos',
+					body: 'auto',
+					footer: 'auto',
 					limit: 3
 				});
 			});
@@ -31,7 +34,13 @@
         	<h1>Bootstrap Github Widget <small>Examples</small></h1>
 
 	        <h2>Via data attributes</h2>
-        	<div class="github-widget" data-ghwidget="gilliek/repos" data-limit="3"></div>
+        	<div class="github-widget"
+        	     data-ghwidget="gilliek/repos"
+        	     data-title="My GitHub repos"
+        	     data-body="auto"
+        	     data-footer="auto"
+        	     data-limit="3">
+        	</div>
 
 			<h2>Via JavaScript</h2>
         	<div id="example1" class="github-widget"></div>
