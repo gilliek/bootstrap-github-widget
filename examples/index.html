@@ -14,6 +14,11 @@
 		<style type="text/css">
 			.github-widget {
 				width: 350px;
+				margin-right: 20px;
+			}
+
+			h2 {
+				clear: both;
 			}
 		</style>
 
@@ -26,6 +31,14 @@
 					footer: 'auto',
 					limit: 3
 				});
+
+				$('#example2').githubWidget({
+					user: 'gilliek',
+					widget: 'gists',
+					body: 'auto',
+					footer: 'auto',
+					limit: 3
+				});
 			});
 		</script>
     </head>
@@ -34,7 +47,7 @@
         	<h1>Bootstrap Github Widget <small>Examples</small></h1>
 
 	        <h2>Via data attributes</h2>
-        	<div class="github-widget"
+        	<div class="github-widget pull-left"
         	     data-ghwidget="gilliek/repos"
         	     data-title="My GitHub repos"
         	     data-body="auto"
@@ -42,8 +55,16 @@
         	     data-limit="3">
         	</div>
 
+        	<div class="github-widget pull-left"
+        	     data-ghwidget="gilliek/gists"
+        	     data-body="auto"
+        	     data-footer="auto"
+        	     data-limit="3">
+        	</div>
+
 			<h2>Via JavaScript</h2>
-        	<div id="example1" class="github-widget"></div>
+        	<div id="example1" class="github-widget pull-left"></div>
+        	<div id="example2" class="github-widget pull-left"></div>
         </div>
 	</body>
 </html>

@@ -46,7 +46,7 @@
             case 'repos':
                 return 'https://github.com/' + plugin.settings.user + '?tab=repositories';
             case 'gists':
-                // TODO
+                return 'https://gist.github.com/' + plugin.settings.user;
             default:
                 return '#';
             }
@@ -112,7 +112,9 @@
                                       <br/>' + v.description;
                             break;
                         case 'gists':
-                            // TODO
+                            var gistName = v.owner.login + "/" + Object.keys(v.files)[0];
+                            content += '<a href="' + v.html_url + '">' + gistName + '</a> \
+                                      <br/>' + v.description;
                             break;
                         }
 
