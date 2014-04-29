@@ -21,7 +21,7 @@
             body: '',
             footer: '',
             classes: [],
-            extra_info: false, // require font-awesome
+            extrainfo: false, // require font-awesome
             limit: 5
         }
 
@@ -84,7 +84,7 @@
         };
 
         var repoInfo = function(repo) {
-            if (!plugin.settings.extra_info) { return ''; }
+            if (!plugin.settings.extrainfo) { return ''; }
             return '<span class="pull-right">\
                         <i class="fa fa-eye"></i> ' + repo.watchers_count + '&nbsp;&nbsp;\
                         <i class="fa fa-star"></i> ' + repo.stargazers_count + '&nbsp;&nbsp;\
@@ -93,7 +93,7 @@
         };
 
         var gistInfo = function(gist) {
-            if (!plugin.settings.extra_info) { return ''; }
+            if (!plugin.settings.extrainfo) { return ''; }
             return '<span class="pull-right">\
                         <i class="fa fa-eye"></i> ' + repo.watchers_count + '&nbsp;&nbsp;\
                         <i class="fa fa-star"></i> ' + repo.stargazers_count + '&nbsp;&nbsp;\
@@ -188,7 +188,7 @@
                 options.body = (inputBody !== undefined) ? inputBody : '';
                 options.footer = (inputFooter !== undefined) ? inputFooter : '';
                 options.classes = (inputClasses !== undefined) ? inputClasses.split(' ') : [];
-                options.extra_info = (inputExtraInfo !== undefined) ? Boolean(inputExtraInfo) : false;
+                options.extrainfo = (inputExtraInfo !== undefined) ? Boolean(inputExtraInfo) : false;
                 options.limit = (inputLimit !== undefined) ? parseInt(inputLimit) : 5;
 
                 var plugin = new $.githubWidget(this, options);
