@@ -1,5 +1,5 @@
 ## Bootstrap Github Widget
 
-![](screenshots/bootstrap-github-widget.png =736x403)
+![](screenshots/bootstrap-github-widget.png)
 
 TODO
