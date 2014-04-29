@@ -170,8 +170,9 @@
     // ======================
 
     $(function() {
-        $.each($('div.github-widget'), function() {
-            var inputWidget = $(this).data('ghwidget');
+        $.each($('[data-toggle="github-widget"]'), function() {
+            var inputUser = $(this).data('user');
+            var inputWidget = $(this).data('widget');
             var inputTitle = $(this).data('title');
             var inputBody = $(this).data('body');
             var inputFooter = $(this).data('footer');
@@ -179,12 +180,10 @@
             var inputExtraInfo = $(this).data('extrainfo');
             var inputLimit = $(this).data('limit');
 
-            if (inputWidget !== undefined) {
-                var tmp = inputWidget.split("/");
-
+            if (inputUser !== undefined) {
                 var options = {};
-                options.user = tmp[0];
-                options.widget = tmp[1];
+                options.user = inputUser;
+                options.widget = (inputWidget !== undefined) ? inputWidget : 'repos';
                 options.title = (inputTitle !== undefined) ? inputTitle: 'auto';
                 options.body = (inputBody !== undefined) ? inputBody : '';
                 options.footer = (inputFooter !== undefined) ? inputFooter : '';
