@@ -16,7 +16,12 @@ Take a look at the examples: `examples/index.html`
 
 #### Via data attributes
 
-TODO
+To display the widget, set `data-toggle="github-widget"` on a container element like
+a div, along with a `data-user="foo"`.
+
+```html
+<div data-toggle="github-widget" data-user="myGithubUsername"></div>
+```
 
 #### Via data JavaScript
 
@@ -26,7 +31,17 @@ $('#mywidget').githubWidget(options)
 
 #### Options
 
+Options can be passed via data attributes of JavaScript. For data attributes, append
+the option name to `data-` as in `data-user="foo"`.
+
+
 | Name | type | default | description |
 |------|------|---------|-------------|
-
-TODO
+| user | string | ''    | TODO |
+| widget | string | 'repos' | TODO |
+| title | string | 'auto' | TODO |
+| body | string | '' | TODO |
+| footer | string | '' | TODO |
+| classes | array of strings | [ ] | TODO |
+| extrainfo | boolean | false | TODO |
+| limit | integer | 5 | TODO |
