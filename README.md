@@ -45,3 +45,7 @@ the option name to `data-` as in `data-user="foo"`.
 | classes | array of strings | [ ] | TODO |
 | extrainfo | boolean | false | TODO |
 | limit | integer | 5 | TODO |
+
+### License
+
+Bootstrap Github Widget is licensed under a BSD 3-clauses. See [LICENSE](https://github.com/gilliek/bootstrap-github-widget/blob/master/LICENSE).
