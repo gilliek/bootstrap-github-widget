@@ -11,7 +11,7 @@
     ],
     "homepage": "https://github.com/gilliek/bootstrap-github-widget",
     "main": [
-    	"dist/bootstrap-github-widget"
+    	"dist/bootstrap-github-widget.min.js"
     ],
     "ignore": [
         ".*"
