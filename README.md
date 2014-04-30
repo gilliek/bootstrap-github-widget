@@ -1,4 +1,4 @@
-## Bootstrap Github Widget
+## Bootstrap Github Widget [![Bower version](https://badge.fury.io/bo/bootstrap-github-widget.svg)](http://badge.fury.io/bo/bootstrap-github-widget)
 
 ![](screenshots/bootstrap-github-widget.png)
 
