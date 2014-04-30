@@ -12,6 +12,14 @@ Take a look at the examples: `examples/index.html`
 * [Twitter Bootstrap 3.x](http://getbootstrap.com/)
 * [Font-Awesome 4.x](http://fortawesome.github.io/Font-Awesome/) (optional, required by the option extrainfo)
 
+### Installation
+
+You have three available options for the installation:
+
+* Download the [latest release](https://github.com/gilliek/bootstrap-github-widget/releases)
+* Clone the repo: `https://github.com/gilliek/bootstrap-github-widget.git`
+* Install with [bower](http://bower.io/): `bower install bootstrap-github-widget`
+
 ### Usage
 
 #### Via data attributes
