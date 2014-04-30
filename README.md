@@ -10,7 +10,7 @@ Take a look at the examples: `examples/index.html`
 
 * [jQuery 1.9.x](http://jquery.com/)
 * [Twitter Bootstrap 3.x](http://getbootstrap.com/)
-* [Font-Awesome 4.x (optional)](http://fortawesome.github.io/Font-Awesome/)
+* [Font-Awesome 4.x](http://fortawesome.github.io/Font-Awesome/) (optional, required by the option extrainfo)
 
 ### Usage
 
@@ -37,13 +37,17 @@ the option name to `data-` as in `data-user="foo"`.
 
 | Name | type | default | description |
 |------|------|---------|-------------|
-| user | string | ''    | TODO |
-| widget | string | 'repos' | TODO |
-| title | string | 'auto' | TODO |
-| body | string | '' | TODO |
-| footer | string | '' | TODO |
-| extrainfo | boolean | false | TODO |
-| limit | integer | 5 | TODO |
+| user | string | ''    | GitHub username. |
+| widget | string | 'repos' | Define the widget type. It can take the values: 'repos', 'gists'. |
+| title | string | 'auto' | Panel title |
+| body | string | '' | The content to display before the list of repos or gists. It also supports the value 'auto', which will display an automatic body. |
+| footer | string | '' | Panel footer. It also supports the value 'auto', which will display an automatic footer. |
+| extrainfo | boolean | false | **Require Font-Awesome**. Flag to toggle extra information. For now, only the widget 'repos' support this option.|
+| limit | integer | 5 | The number of items to display. |
+
+### Contribution
+
+Pull requests are welcome :)
 
 ### License
 
