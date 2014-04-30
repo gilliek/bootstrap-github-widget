@@ -1,0 +1,20 @@
+{
+    "name": "bootstrap-github-widget",
+    "description": "GitHub widget for Twitter Bootstrap.",
+    "version": "1.0.0",
+    "keywords": [
+        "js",
+        "web",
+        "bootstrap",
+        "github",
+        "widget"
+    ],
+    "homepage": "https://github.com/gilliek/bootstrap-github-widget",
+    "main": [
+    	"dist/bootstrap-github-widget"
+    ],
+    "dependencies": {
+    	"jquery": ">= 1.9.0",
+    	"bootstrap": ">= 3.0.0"
+    }
+}
