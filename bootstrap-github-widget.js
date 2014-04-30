@@ -20,7 +20,6 @@
             title: 'auto',
             body: '',
             footer: '',
-            classes: [],
             extrainfo: false, // require font-awesome
             limit: 5
         }
@@ -32,8 +31,7 @@
             element = element;
 
         var fillElement = function(title, body, content, footer) {
-            var classes = plugin.settings.classes.length > 0 ? ' ' + plugin.settings.classes.join(' ') : '';
-            var panel = '<div class="panel panel-default' + classes + '">';
+            var panel = '<div class="panel panel-default">';
             panel += '<div class="panel-heading">' + title + '</div>';
             panel += body != '' ? '<div class="panel-body">' + body + '</div>' : '';
             panel += content;
@@ -176,7 +174,6 @@
             var inputTitle = $(this).data('title');
             var inputBody = $(this).data('body');
             var inputFooter = $(this).data('footer');
-            var inputClasses = $(this).data('classes');
             var inputExtraInfo = $(this).data('extrainfo');
             var inputLimit = $(this).data('limit');
 
@@ -187,7 +184,6 @@
                 options.title = (inputTitle !== undefined) ? inputTitle: 'auto';
                 options.body = (inputBody !== undefined) ? inputBody : '';
                 options.footer = (inputFooter !== undefined) ? inputFooter : '';
-                options.classes = (inputClasses !== undefined) ? inputClasses.split(' ') : [];
                 options.extrainfo = (inputExtraInfo !== undefined) ? Boolean(inputExtraInfo) : false;
                 options.limit = (inputLimit !== undefined) ? parseInt(inputLimit) : 5;
 

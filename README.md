@@ -42,7 +42,6 @@ the option name to `data-` as in `data-user="foo"`.
 | title | string | 'auto' | TODO |
 | body | string | '' | TODO |
 | footer | string | '' | TODO |
-| classes | array of strings | [ ] | TODO |
 | extrainfo | boolean | false | TODO |
 | limit | integer | 5 | TODO |
 
