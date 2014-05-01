@@ -55,7 +55,7 @@ the option name to `data-` as in `data-user="foo"`.
 
 ### Contribution
 
-Pull requests are welcome :)
+[Pull requests](https://help.github.com/articles/fork-a-repo) are welcome :)
 
 ### License
 
