@@ -48,8 +48,8 @@ the option name to `data-` as in `data-user="foo"`.
 | user | string | ''    | GitHub username. |
 | widget | string | 'repos' | Define the widget type. It can take the values: 'repos', 'gists'. |
 | title | string | 'auto' | Panel title |
-| body | string | '' | The content to display before the list of repos or gists. It also supports the value 'auto', which will display an automatic body. |
-| footer | string | '' | Panel footer. It also supports the value 'auto', which will display an automatic footer. |
+| body | string | '' | The content to display before the list of items. It also supports the value 'auto', which will display a default body. |
+| footer | string | '' | Panel footer. It also supports the value 'auto', which will display a default footer. |
 | extrainfo | boolean | false | **Require Font-Awesome**. Flag to toggle extra information. For now, only the widget 'repos' support this option.|
 | limit | integer | 5 | The number of items to display. A value less than or equal to 0 will display all items. |
 
